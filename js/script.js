@@ -1,7 +1,6 @@
+//*Constant Variables*/
 const objPerPage = 9;
 const studentList = document.querySelector('.student-list');
-const headerSearchBar = document.querySelector('.header');
-const searchPlace = document.querySelector('#search');
 
 /*
 Create the `showPage` function
