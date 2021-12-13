@@ -1,5 +1,7 @@
 const objPerPage = 9;
 const studentList = document.querySelector('.student-list');
+const headerSearchBar = document.querySelector('.header');
+const searchPlace = document.querySelector('#search');
 
 /*
 Create the `showPage` function
@@ -38,22 +40,23 @@ function paginationBtn (list) {
    const pageNum = Math.ceil(list.length/objPerPage);
    const linkList = document.querySelector('.link-list');
    linkList.innerHTML = '';
-   for(let i = 0; i <= pageNum.length; i++){
+   for(let i = 1; i <= pageNum; i++){
       const pagbtn = `<li>
                         <button type="button">${i}</button>
                      </li>`;
       linkList.insertAdjacentHTML('beforeend',pagbtn);
-   };
+   
    const button = document.querySelector('button:first-child');
-   button.classList.add('active');
+   button.className = 'active';
    linkList.addEventListener('click',(e)=>{
       if(e.target.tagName === 'BUTTON'){
          const activeBtn = document.querySelector('.active');
-         e.target.className = 'active';
          activeBtn.className = '';
+         e.target.className = 'active';
          viewPage(list,e.target.textContent);
-      };
-   });
+         };
+      });
+   }; 
 } 
 
 
@@ -62,6 +65,5 @@ function paginationBtn (list) {
 viewPage(data,1);
 
 paginationBtn(data);
-
 
 
